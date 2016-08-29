@@ -1,0 +1,21 @@
+{
+    "name": "mhndev/yii2-taxonomy-term",
+    "description": "taxonomy term implementation in Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","taxonomy","term","category","tag"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "majid abdolhosseini",
+            "email": "majid8911303@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "mhndev\\yii\\taxonomyTerm\\": ""
+        }
+    }
+}
