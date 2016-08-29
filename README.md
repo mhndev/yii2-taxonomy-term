@@ -10,7 +10,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist mhndev/yii2-taxonomy-term "*"
+composer require --prefer-dist mhndev/yii2-taxonomy-term "*"
 ```
 
 or add
@@ -25,7 +25,5 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
 
-```php
-<?= \mhndev\yii\taxonomyTerm\AutoloadExample::widget(); ?>```
+this section is going to be complete soon.
