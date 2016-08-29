@@ -11,11 +11,15 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "*"
+        "yiisoft/yii2": "*",
+        "mhndev/taxonomy-term":"*"
     },
+
     "autoload": {
         "psr-4": {
-            "mhndev\\yii\\taxonomyTerm\\": ""
+            "mhndev\\yii\\taxonomyTerm\\": "src/"
         }
-    }
+    },
+
+  "minimum-stability": "dev"
 }

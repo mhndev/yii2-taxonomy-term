@@ -1,11 +1,12 @@
 <?php
 
 namespace mhndev\yii\taxonomyTerm;
+use yii\base\Widget;
 
 /**
  * This is just an example.
  */
-class AutoloadExample extends \yii\base\Widget
+class AutoloadExample extends Widget
 {
     public function run()
     {
