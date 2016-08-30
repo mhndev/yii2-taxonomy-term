@@ -7,7 +7,7 @@
  */
 namespace mhndev\yii2TaxonomyTerm\controllers;
 
-use mhndev\yii2TaxonomyTerm\Entities\Taxonomy;
+use mhndev\yii2TaxonomyTerm\models\Taxonomy;
 use yii\rest\ActiveController;
 
 /**
