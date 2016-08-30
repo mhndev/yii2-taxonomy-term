@@ -35,6 +35,7 @@ class Taxonomy extends ActiveRecord implements iTaxonomy
         return [
 
             [['name'], 'required'],
+            [['type'],'required'],
 
         ];
     }

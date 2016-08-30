@@ -9,7 +9,7 @@ namespace mhndev\yii2TaxonomyTerm\models;
 
 use mhndev\taxonomyTerm\Interfaces\iTaxonomy;
 use mhndev\taxonomyTerm\Interfaces\iTerm;
-use mhndev\yii2TaxonomyTerm\Exceptions\ObjectMustBeInstanceOfActiveRecordException;
+use mhndev\yii2TaxonomyTerm\exceptions\ObjectMustBeInstanceOfActiveRecordException;
 use yii\db\ActiveRecord;
 
 /**
@@ -34,9 +34,8 @@ class Term extends ActiveRecord implements iTerm
     public function rules()
     {
         return [
-
-            [['name'], 'required'],
-
+            [['taxonomy_id'], 'required'],
+            [['value'], 'required'],
         ];
     }
 
