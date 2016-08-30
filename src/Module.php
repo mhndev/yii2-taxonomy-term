@@ -34,6 +34,10 @@ class Module extends BaseModule implements BootstrapInterface
         parent::init();
 
     }
+
+    /**
+     * @param \yii\base\Application $app
+     */
     public function bootstrap($app)
     {
         if ($app instanceof ConsoleApplication) {

@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation for table `taxonomies`.
  */
-class m160830_094120_create_taxonomies_table extends Migration
+class m160830_094140_create_taxonomies_table extends Migration
 {
     /**
      * @inheritdoc

@@ -14,7 +14,7 @@ class m160830_094621_create_entity_terms_table extends Migration
     {
         $this->createTable('entity_terms', [
             'id' => $this->primaryKey(),
-            'term_id'=>$this->string(),
+            'term_id'=>$this->integer(),
             'entity'=>$this->string(),
             'entity_id'=>$this->integer(),
 
@@ -23,8 +23,8 @@ class m160830_094621_create_entity_terms_table extends Migration
         ]);
 
 
-        $this->createIndex('index-entity_terms-term_id','terms','term_id');
-        $this->addForeignKey('fk-entity_terms-term_id','terms','term_id','terms','id');
+        $this->createIndex('index-entity_terms-term_id','entity_terms','term_id');
+        $this->addForeignKey('fk-entity_terms-term_id','entity_terms','term_id','terms','id');
     }
 
     /**
