@@ -5,7 +5,7 @@
  * Date: 8/29/16
  * Time: 4:47 PM
  */
-namespace mhndev\yii2TaxonomyTerm\Exceptions;
+namespace mhndev\yii2TaxonomyTerm\exceptions;
 
 /**
  * Class ObjectMustBeInstanceOfActiveRecordException

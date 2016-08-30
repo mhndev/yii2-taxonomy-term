@@ -5,7 +5,7 @@
  * Date: 8/29/16
  * Time: 4:52 PM
  */
-namespace mhndev\yii2TaxonomyTerm\Entities;
+namespace mhndev\yii2TaxonomyTerm\models;
 
 use yii\db\ActiveRecord;
 

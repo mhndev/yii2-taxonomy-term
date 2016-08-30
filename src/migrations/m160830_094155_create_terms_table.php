@@ -1,16 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: majid
- * Date: 8/29/16
- * Time: 3:58 PM
- */
+
 use yii\db\Migration;
 
 /**
  * Handles the creation for table `terms`.
  */
-class create_terms_table extends Migration
+class m160830_094155_create_terms_table extends Migration
 {
     /**
      * @inheritdoc

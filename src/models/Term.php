@@ -5,7 +5,7 @@
  * Date: 8/29/16
  * Time: 12:57 PM
  */
-namespace mhndev\yii2TaxonomyTerm\Entities;
+namespace mhndev\yii2TaxonomyTerm\models;
 
 use mhndev\taxonomyTerm\Interfaces\iTaxonomy;
 use mhndev\taxonomyTerm\Interfaces\iTerm;
