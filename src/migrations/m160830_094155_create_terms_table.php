@@ -16,8 +16,13 @@ class m160830_094155_create_terms_table extends Migration
             'id' => $this->primaryKey(),
             'taxonomy_id'=>$this->integer(),
             'parent_id'=>$this->integer(),
-            'value'=>$this->string(),
+
+            'name'=>$this->string(),
+
+            'slug'=>$this->string(),
+
             'usage_count'=>$this->integer(),
+            
             'created_at'=>$this->dateTime(),
             'updated_at'=>$this->dateTime()
         ]);

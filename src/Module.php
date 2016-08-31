@@ -33,6 +33,13 @@ class Module extends BaseModule implements BootstrapInterface
     {
         parent::init();
 
+//        \Yii::configure($this, [
+//            'components'=>[
+//                'slug' => [
+//                    'class' => Slug::class
+//                ]
+//            ]
+//        ]);
     }
 
     /**

@@ -7,7 +7,7 @@
  */
 namespace mhndev\yii2TaxonomyTerm\models;
 
-use mhndev\yii2TaxonomyTerm\traits\TimeStampTrait;
+use yii\behaviors\SluggableBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -17,15 +17,12 @@ use yii\db\ActiveRecord;
 class EntityTerm extends ActiveRecord
 {
 
-    use TimeStampTrait;
-
     /**
      * @return string
      */
     public static function tableName()
     {
         return 'entity_terms';
-
     }
 
     /**
@@ -37,6 +34,24 @@ class EntityTerm extends ActiveRecord
             [['entity'], 'required'],
             [['entity_id'], 'required'],
             [['term_id'], 'required'],
+            [['entity', 'entity_id', 'entity'], 'unique', 'targetAttribute' => ['entity', 'entity_id', 'entity']],
         ];
     }
+
+    /**
+     * @param bool $insert
+     * @return bool
+     */
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if($insert)
+                $this->created_at = date('Y-m-d H:i:s');
+            $this->updated_at = date('Y-m-d H:i:s');
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

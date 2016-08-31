@@ -16,6 +16,8 @@ class m160830_094140_create_taxonomies_table extends Migration
             'id' => $this->primaryKey(),
             'type'=>$this->string(),
             'name'=>$this->string(),
+            'slug'=>$this->string(),
+
             'created_at'=>$this->dateTime(),
             'updated_at'=>$this->dateTime()
         ]);

@@ -9,7 +9,7 @@ namespace mhndev\yii2TaxonomyTerm\models;
 
 use mhndev\taxonomyTerm\Interfaces\iTaxonomy;
 use mhndev\taxonomyTerm\Interfaces\iTerm;
-use mhndev\yii2TaxonomyTerm\traits\TimeStampTrait;
+use yii\behaviors\SluggableBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -19,15 +19,28 @@ use yii\db\ActiveRecord;
 class Taxonomy extends ActiveRecord implements iTaxonomy
 {
 
-    use TimeStampTrait;
     /**
      * @return string
      */
     public static function tableName()
     {
         return 'taxonomies';
-
     }
+
+    /**
+     * @return array
+     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'name',
+                'slugAttribute' => 'slug',
+            ],
+        ];
+    }
+
 
     /**
      * @return array
@@ -75,6 +88,23 @@ class Taxonomy extends ActiveRecord implements iTaxonomy
     public function listTerms()
     {
         return $this->hasMany(Term::class, ['term_id'=>'id']);
+    }
+
+
+    /**
+     * @param bool $insert
+     * @return bool
+     */
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if($insert)
+                $this->created_at = date('Y-m-d H:i:s');
+            $this->updated_at = date('Y-m-d H:i:s');
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
