@@ -7,27 +7,27 @@
  */
 namespace mhndev\yii2TaxonomyTerm\controllers;
 
-use yii\web\Controller;
+use mhndev\yii2TaxonomyTerm\models\EntityTerm;
+use yii\rest\ActiveController;
 
 /**
  * Class EntityController
  * @package mhndev\yii2TaxonomyTerm\controllers
  */
-class EntityController extends Controller
+class EntityController extends ActiveController
 {
 
-    public function actionAttach()
-    {
-        $data = \Yii::$app->request->get();
+    /**
+     * @var string
+     */
+    public $modelClass = EntityTerm::class;
 
-        var_dump($data);
-        die();
+    /**
+     * @var array
+     */
+    public $serializer = [
+        'class' => 'yii\rest\Serializer',
+        'collectionEnvelope' => 'items',
+    ];
 
-    }
-
-
-    public function actionDetach()
-    {
-
-    }
 }
