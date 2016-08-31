@@ -35,7 +35,7 @@ user mhndev\yii2TaxonomyTerm\traits\TermableTrait in each Model which you want t
 ### example
 
 ##### Post Model
-```
+```php
 class Post extends ActiveRecord
 {
 
@@ -67,27 +67,27 @@ class Post extends ActiveRecord
 
 
 ### attach a term to an entity
-```
+```php
     $term = Term::findOne(['id'=>1]);
     $post = Post::findOne(['id'=>1]);
     $post->attachTerm($term);
 
 ```
 ### detach a term from an entity
-```
+```php
     $term = Term::findOne(['id'=>1]);
     $post = Post::findOne(['id'=>1]);
     $post->detachTerm($term);
 
 ```
 ### list terms of an entity
-```
+```php
     $post = Post::findOne(['id'=>1]);
     $post->listTerms();
 
 ```
 ### get term tree
-```
+```php
     $term = Term::findOne(['id'=>1]);
     $term->getTree();
 ```
