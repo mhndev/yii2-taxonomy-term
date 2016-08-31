@@ -9,6 +9,7 @@ namespace mhndev\yii2TaxonomyTerm\models;
 
 use mhndev\taxonomyTerm\Interfaces\iTaxonomy;
 use mhndev\taxonomyTerm\Interfaces\iTerm;
+use mhndev\yii2TaxonomyTerm\traits\TimeStampTrait;
 use yii\db\ActiveRecord;
 
 /**
@@ -18,6 +19,7 @@ use yii\db\ActiveRecord;
 class Taxonomy extends ActiveRecord implements iTaxonomy
 {
 
+    use TimeStampTrait;
     /**
      * @return string
      */
@@ -74,4 +76,5 @@ class Taxonomy extends ActiveRecord implements iTaxonomy
     {
         return $this->hasMany(Term::class, ['term_id'=>'id']);
     }
+
 }

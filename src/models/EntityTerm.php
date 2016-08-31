@@ -7,6 +7,7 @@
  */
 namespace mhndev\yii2TaxonomyTerm\models;
 
+use mhndev\yii2TaxonomyTerm\traits\TimeStampTrait;
 use yii\db\ActiveRecord;
 
 /**
@@ -15,6 +16,8 @@ use yii\db\ActiveRecord;
  */
 class EntityTerm extends ActiveRecord
 {
+
+    use TimeStampTrait;
 
     /**
      * @return string
@@ -31,10 +34,9 @@ class EntityTerm extends ActiveRecord
     public function rules()
     {
         return [
-
-            [['name'], 'required'],
-
+            [['entity'], 'required'],
+            [['entity_id'], 'required'],
+            [['term_id'], 'required'],
         ];
     }
-
 }
