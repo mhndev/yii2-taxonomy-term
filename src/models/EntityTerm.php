@@ -17,41 +17,58 @@ use yii\db\ActiveRecord;
 class EntityTerm extends ActiveRecord
 {
 
-    /**
-     * @return string
-     */
-    public static function tableName()
-    {
-        return 'entity_terms';
-    }
+  /**
+   * @return string
+   */
+  public static function tableName()
+  {
+		return 'entity_terms';
+  }
 
-    /**
-     * @return array
-     */
-    public function rules()
-    {
-        return [
-            [['entity'], 'required'],
-            [['entity_id'], 'required'],
-            [['term_id'], 'required'],
-            [['entity', 'entity_id', 'entity'], 'unique', 'targetAttribute' => ['entity', 'entity_id', 'entity']],
-        ];
-    }
+  /**
+   * @return array
+   */
+  public function rules()
+  {
+		return [
+			[['entity'], 'required'],
+			[['entity_id'], 'required'],
+			[['term_id'], 'required'],
+			[['entity', 'entity_id', 'term_id'], 'unique', 'targetAttribute' => ['entity', 'entity_id', 'term_id']],
+		];
+  }
 
-    /**
-     * @param bool $insert
-     * @return bool
-     */
-    public function beforeSave($insert)
-    {
-        if (parent::beforeSave($insert)) {
-            if($insert)
-                $this->created_at = date('Y-m-d H:i:s');
-            $this->updated_at = date('Y-m-d H:i:s');
-            return true;
-        } else {
-            return false;
-        }
-    }
+  /**
+   * @param bool $insert
+   * @return bool
+   */
+  public function beforeSave($insert)
+  {
+		if (parent::beforeSave($insert)) {
+		    if($insert)
+		        $this->created_at = date('Y-m-d H:i:s');
+		    $this->updated_at = date('Y-m-d H:i:s');
+		    return true;
+		} else {
+		    return false;
+		}
+  }
+
+  public function afterSave($insert, $changedAttributes)
+  {
+    // Increase Term usage Counter;
+    return  Term::findOne($this->term_id)->updateCounters(['usage_count' => 1]);
+  }
+
+  public function afterDelete()
+  {
+    parent::afterDelete();
+
+    // Decrease Term usage Counter
+    return  Term::findOne($this->term_id)->updateCounters(['usage_count' => -1]);
+  }
+
+
+
 
 }
