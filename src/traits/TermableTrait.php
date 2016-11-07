@@ -45,10 +45,6 @@ trait TermableTrait
      */
     public function detachTerm(iTerm $term)
     {
-        /** @var Term $term */
-        $term->usage_count = $term->usage_count - 1;
-        $term->save();
-
         return EntityTerm::deleteAll(['term_id'=>$term->id, 'entity_id'=>$this->id]);
     }
 
@@ -58,12 +54,7 @@ trait TermableTrait
      */
     public function attachTerm(iTerm $term)
     {
-        /** @var Term $term */
-        $term->usage_count = $term->usage_count + 1;
-        $term->save();
-
         $record = new EntityTerm(['term_id'=>$term->id, 'entity_id'=>$this->id, 'entity'=>static::class]);
-
         $record->save();
 
         return $record;
