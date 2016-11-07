@@ -34,7 +34,7 @@ class EntityTerm extends ActiveRecord
 			[['entity'], 'required'],
 			[['entity_id'], 'required'],
 			[['term_id'], 'required'],
-			[['entity', 'entity_id', 'entity'], 'unique', 'targetAttribute' => ['entity', 'entity_id', 'entity']],
+			[['entity', 'entity_id', 'term_id'], 'unique', 'targetAttribute' => ['entity', 'entity_id', 'term_id']],
 		];
   }
 
